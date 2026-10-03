@@ -1,0 +1,151 @@
+/* App.css — Additional utility classes and animations for AI Quiz Generator */
+
+/* ── Fade-in Animation ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn { animation: fadeIn 0.25s ease forwards; }
+
+/* ── Pulse Glow ── */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(99,102,241,0.25); }
+  50%       { box-shadow: 0 0 24px rgba(99,102,241,0.6); }
+}
+.pulse-glow { animation: pulseGlow 2s infinite; }
+
+/* ── Spin ── */
+@keyframes spin { to { transform: rotate(360deg); } }
+.animate-spin   { animation: spin 1s linear infinite; }
+
+/* ── Pulse ── */
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.animate-pulse   { animation: pulse 2s cubic-bezier(0.4,0,0.6,1) infinite; }
+
+/* ── Float ── */
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+.animate-float   { animation: float 3s ease-in-out infinite; }
+
+/* ── Shimmer ── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg,rgba(255,255,255,0.04) 25%,rgba(255,255,255,0.09) 50%,rgba(255,255,255,0.04) 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+/* ── Smooth scrolling ── */
+html { scroll-behavior: smooth; }
+
+/* ── Font heading utility ── */
+.font-heading { font-family: 'Outfit', sans-serif; }
+
+/* ── Text clamping ── */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── 3D Perspective / Flashcard utilities ── */
+.perspective-1000     { perspective: 1000px; }
+.transform-style-3d   { transform-style: preserve-3d; }
+.backface-hidden      { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.rotate-y-180         { transform: rotateY(180deg); }
+.duration-500         { transition-duration: 500ms; }
+
+/* ── Layout helpers ── */
+.my-auto          { margin-top: auto; margin-bottom: auto; }
+.overflow-hidden  { overflow: hidden; }
+.overflow-x-auto  { overflow-x: auto; }
+.truncate         { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+
+/* ── Textarea resize ── */
+textarea.glass-input { resize: vertical; min-height: 130px; line-height: 1.6; }
+
+/* ── Select appearance ── */
+select.glass-input { cursor: pointer; appearance: none; }
+
+/* ── Disabled state ── */
+.disabled\:opacity-30:disabled     { opacity: 0.3; }
+.disabled\:cursor-not-allowed:disabled { cursor: not-allowed; }
+
+/* ── Prose text sizes ── */
+.text-xs   { font-size: 0.75rem;  line-height: 1rem; }
+.text-sm   { font-size: 0.875rem; line-height: 1.25rem; }
+.text-base { font-size: 1rem;     line-height: 1.5rem; }
+.text-lg   { font-size: 1.125rem; line-height: 1.75rem; }
+.text-xl   { font-size: 1.25rem;  line-height: 1.75rem; }
+.text-2xl  { font-size: 1.5rem;   line-height: 2rem; }
+.text-3xl  { font-size: 1.875rem; line-height: 2.25rem; }
+
+/* ── Border-radius ── */
+.rounded-xl   { border-radius: 12px; }
+.rounded-2xl  { border-radius: 16px; }
+.rounded-full { border-radius: 9999px; }
+.rounded-lg   { border-radius: 8px; }
+
+/* ── Positioning ── */
+.sticky { position: sticky; }
+.top-0  { top: 0; }
+.z-40   { z-index: 40; }
+.z-50   { z-index: 50; }
+
+/* ── Backdrop blur ── */
+.backdrop-blur-md { backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+.backdrop-blur-xl { backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); }
+
+/* ── Gradient helpers (used by existing quiz components) ── */
+.from-blue-500    { --tw-gradient-from: #3b82f6; }
+.to-cyan-400      { --tw-gradient-to: #22d3ee; }
+.from-purple-500  { --tw-gradient-from: #a855f7; }
+.to-indigo-500    { --tw-gradient-to: #6366f1; }
+.from-amber-500   { --tw-gradient-from: #f59e0b; }
+.to-rose-500      { --tw-gradient-to: #f43f5e; }
+.from-emerald-500 { --tw-gradient-from: #10b981; }
+.to-teal-400      { --tw-gradient-to: #2dd4bf; }
+.from-indigo-600  { --tw-gradient-from: #4f46e5; }
+.to-purple-600    { --tw-gradient-to: #9333ea; }
+.from-indigo-500  { --tw-gradient-from: #6366f1; }
+.to-purple-500    { --tw-gradient-to: #a855f7; }
+
+.bg-gradient-to-br { background-image: linear-gradient(to bottom right, var(--tw-gradient-from), var(--tw-gradient-to)); }
+.bg-gradient-to-r  { background-image: linear-gradient(to right, var(--tw-gradient-from), var(--tw-gradient-to)); }
+.bg-gradient-to-bl { background-image: linear-gradient(to bottom left, var(--tw-gradient-from), var(--tw-gradient-to)); }
+
+/* ── Hidden ── */
+.hidden { display: none; }
+
+/* ── Responsive helpers (used by existing QuizPlayer, etc.) ── */
+@media (min-width: 768px) {
+  .md\:block         { display: block; }
+  .md\:flex          { display: flex; }
+  .md\:grid          { display: grid; }
+  .md\:hidden        { display: none; }
+  .md\:w-80          { width: 20rem; }
+  .md\:flex-row      { flex-direction: row; }
+  .md\:w-auto        { width: auto; }
+  .md\:grid-cols-2   { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .md\:grid-cols-3   { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .md\:p-8           { padding: 2rem; }
+  .md\:col-span-2    { grid-column: span 2 / span 2; }
+  .md\:text-2xl      { font-size: 1.5rem; line-height: 2rem; }
+  .md\:text-4xl      { font-size: 2.25rem; line-height: 2.5rem; }
+  .md\:inline        { display: inline; }
+}
+
+@media (min-width: 1024px) {
+  .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+}
+
+@media (min-width: 640px) {
+  .sm\:flex-row      { flex-direction: row; }
+  .sm\:block         { display: block; }
+  .sm\:inline        { display: inline; }
+  .sm\:inline-block  { display: inline-block; }
+  .sm\:items-center  { align-items: center; }
+}
